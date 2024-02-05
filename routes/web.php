@@ -26,8 +26,8 @@ Route::controller(GenreController::class)->group(function () {
     Route::get('/genre', 'index')->name('genre.index');
     Route::get('/genre/create', 'create')->name('genre.create');
     Route::post('/genre', 'store')->name('genre.store');
-    Route::get('/genre/{genre}/edit', 'edit')->name('genre.edit');
-    Route::get('/genre/{genre}', 'show')->name('genre.show');
-    Route::put('/genre/{genre}', 'update')->name('genre.update');
-    Route::delete('/genre/{genre}', 'delete')->name('genre.delete');
+    Route::get('/genre/{id}', 'show')->name('genre.show');
+    Route::get('/genre/{id}/edit', 'edit')->name('genre.edit');
+    Route::put('/genre/{id}', 'update')->name('genre.update');
+    Route::delete('/genre/{id}', 'delete')->name('genre.delete');
 });
