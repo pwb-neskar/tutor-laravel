@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GenreController extends Controller
 {
@@ -11,7 +12,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -20,6 +21,7 @@ class GenreController extends Controller
     public function create()
     {
         //
+        return view('genre.create');
     }
 
     /**
@@ -27,7 +29,17 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi data inputan data wajib diisi dan minimal 5 karakter
+        $request->validate([
+            'nama'  => 'required|min:5',
+        ]);
+
+        // Query Untuk menyimpan data
+        $query = DB::table('genres')->insert([
+            'nama'  => $request['nama'],
+        ]);
+        // Jika data disimpan maka di redirect ke halaman index
+        return redirect()->route('genre.index')->with(['success' => 'Data Telah ditambahkan']);;
     }
 
     /**
