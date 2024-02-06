@@ -43,12 +43,17 @@
                   {{ $value->nama }}
                 </td>
                 <td>
+                  <form action="{{ route('genre.delete', $value->id) }}" method="post">
                   <a href="{{ route('genre.show', $value->id) }}" class="btn btn-sm btn-info">
                     Detail
                   </a>
                   <a href="{{ route('genre.edit', $value->id) }}" class="btn btn-sm btn-warning">
                     Edit
                   </a>
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" class="btn btn-sm btn-danger my-1" value="Delete">
+                  </form>
                 </td>              
               </tr>
             @empty
