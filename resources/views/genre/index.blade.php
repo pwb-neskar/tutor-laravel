@@ -46,6 +46,9 @@
                   <a href="{{ route('genre.show', $value->id) }}" class="btn btn-sm btn-info">
                     Detail
                   </a>
+                  <a href="{{ route('genre.edit', $value->id) }}" class="btn btn-sm btn-warning">
+                    Edit
+                  </a>
                 </td>              
               </tr>
             @empty

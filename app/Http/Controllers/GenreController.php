@@ -58,7 +58,10 @@ class GenreController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //Mengambil data dari database
+        $genre = DB::table('genres')->where('id', $id)->first();
+        // menampilkan view edit data
+        return view('genre.edit', compact('genre'));
     }
 
     /**
@@ -66,7 +69,19 @@ class GenreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //validasi data inputan data wajib diisi dan minimal 5 karakter
+        $request->validate([
+            'nama'  => 'required|min:5',
+        ]);
+
+        // Query Untuk menyimpan data
+        $query = DB::table('genres')
+        ->where('id', $id)
+        ->update([
+            'nama'  => $request['nama'],
+        ]);
+        // Jika data disimpan maka di redirect ke halaman index
+        return redirect()->route('genre.index')->with(['success' => 'Data Berhasil diupdate']);;
     }
 
     /**
