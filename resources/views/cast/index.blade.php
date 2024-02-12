@@ -20,7 +20,7 @@
     <div class="card">
       <div class="card-header">
         <a href="{{ route('cast.create') }}" class="btn btn-sm btn-outline-primary">
-          <i class="fa fa-plus"> Genre</i>
+          <i class="fa fa-plus"> Data Pemeran</i>
         </a>
       </div>
       <!-- /.card-header -->
@@ -47,7 +47,7 @@
                   {{ $value->umur }}
                 </td>
                 <td>
-                  <form action="{{ route('cast.delete', $value->id) }}" method="post">
+                  <form action="{{ route('cast.destroy', $value->id) }}" method="post">
                   <a href="{{ route('cast.show', $value->id) }}" class="btn btn-sm btn-info">
                     Detail
                   </a>
