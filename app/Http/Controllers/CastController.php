@@ -14,6 +14,8 @@ class CastController extends Controller
     public function index()
     {
         //
+        $casts = Cast::select('id','nama', 'umur')->get();
+        return view('cast.index', compact('casts'));
     }
 
     /**
