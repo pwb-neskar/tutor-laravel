@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\CastController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +33,5 @@ Route::controller(GenreController::class)->group(function () {
     Route::put('/genre/{id}', 'update')->name('genre.update');
     Route::delete('/genre/{id}', 'delete')->name('genre.delete');
 });
+
+Route::resource('/cast', CastController::class);
