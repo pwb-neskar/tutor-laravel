@@ -15,7 +15,8 @@ return new class extends Migration
             //
             $table->dropColumn('email_verified_at');
             $table->dropColumn('remember_token');
-            $table->foreignId('role_id')->references('id')->on('roles')->onDelete('cascade')->after('id');
+            $table->foreignId('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreignId('profile_id')->references('id')->on('profiless')->onDelete('cascade');
         });
     }
 
