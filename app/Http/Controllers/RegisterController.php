@@ -33,7 +33,8 @@ class RegisterController extends Controller
             'profile_id'    => $profile->id,
             'role_id'       => 1,
         ]);
-    }
 
+        return redirect()->route('login.login');
+    }
     // Save data registrasi
 }
