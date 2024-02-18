@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GenreController;
-use App\Http\Controllers\CastController;
+use App\Http\Controllers\ {
+    GenreController,
+    CastController,
+    RegisterController,
+};
+
 
 
 /*
@@ -23,6 +27,12 @@ Route::get('/', function () {
 Route::view('/master', 'template.master');
 Route::view('/test', 'test');
 
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('/register', 'create')->name('register.create');
+    Route::post('/register', 'store')->name('register.store');
+});
+
+
 // Route Untuk mengelola GenreController
 Route::controller(GenreController::class)->group(function () {
     Route::get('/genre', 'index')->name('genre.index');
@@ -33,5 +43,6 @@ Route::controller(GenreController::class)->group(function () {
     Route::put('/genre/{id}', 'update')->name('genre.update');
     Route::delete('/genre/{id}', 'delete')->name('genre.delete');
 });
+
 
 Route::resource('/cast', CastController::class);
